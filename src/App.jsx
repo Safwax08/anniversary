@@ -1,12 +1,10 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useState } from 'react';
 
 // Components
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
 import FloatingElements from './components/FloatingElements';
 import HeartCursor from './components/HeartCursor';
 import AudioPlayer from './components/AudioPlayer';
+import StoryControls from './components/StoryControls';
 
 // Pages
 import Home from './pages/Home';
@@ -19,46 +17,61 @@ import SpecialMoments from './pages/SpecialMoments';
 import Countdown from './pages/Countdown';
 import FinalSurprise from './pages/FinalSurprise';
 
-function AnimatedRoutes() {
-  return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/our-story" element={<OurStory />} />
-      <Route path="/memories" element={<Memories />} />
-      <Route path="/love-letter" element={<LoveLetter />} />
-      <Route path="/reasons" element={<Reasons />} />
-      <Route path="/journey" element={<Journey />} />
-      <Route path="/special-moments" element={<SpecialMoments />} />
-      <Route path="/countdown" element={<Countdown />} />
-      <Route path="/surprise" element={<FinalSurprise />} />
-    </Routes>
-  );
-}
+const STORY_PAGES = [
+  Home,
+  OurStory,
+  Memories,
+  LoveLetter,
+  Reasons,
+  Journey,
+  SpecialMoments,
+  Countdown,
+  FinalSurprise
+];
 
 export default function App() {
+  const [currentStep, setCurrentStep] = useState(0);
+
+  const nextStep = () => {
+    if (currentStep < STORY_PAGES.length - 1) {
+      setCurrentStep(prev => prev + 1);
+    }
+  };
+
+  const prevStep = () => {
+    if (currentStep > 0) {
+      setCurrentStep(prev => prev - 1);
+    }
+  };
+
+  const CurrentPage = STORY_PAGES[currentStep];
+
   return (
-    <Router>
-      <div className="relative min-h-screen flex flex-col bg-softPink text-textDark selection:bg-rosePink/50 selection:text-primaryPink font-sans overflow-x-hidden">
-        {/* Ambient floating hearts & rose petals canvas */}
-        <FloatingElements />
+    <div className="relative h-screen w-screen overflow-hidden bg-softPink text-textDark selection:bg-rosePink/50 selection:text-primaryPink font-sans">
+      {/* Ambient Canvas */}
+      <FloatingElements />
 
-        {/* Custom heart cursor effect for desktop */}
-        <HeartCursor />
+      {/* Interactive Elements */}
+      <HeartCursor />
+      <AudioPlayer />
+      
+      {/* Story Navigation Controls */}
+      <StoryControls 
+        currentStep={currentStep} 
+        totalSteps={STORY_PAGES.length} 
+        onNext={nextStep} 
+        onPrev={prevStep} 
+      />
 
-        {/* Audio Player controller */}
-        <AudioPlayer />
-
-        {/* Global sticky Navbar */}
-        <Navbar />
-
-        {/* Main page content wrapper */}
-        <main className="flex-grow z-10 w-full">
-          <AnimatedRoutes />
-        </main>
-
-        {/* Global Footer */}
-        <Footer />
-      </div>
-    </Router>
+      {/* Main Slide Content */}
+      <main className="z-10 w-full h-full relative">
+        <div 
+          key={currentStep} 
+          className="absolute inset-0 w-full h-full animate-fade-in overflow-y-auto overflow-x-hidden"
+        >
+          <CurrentPage onNext={nextStep} />
+        </div>
+      </main>
+    </div>
   );
 }

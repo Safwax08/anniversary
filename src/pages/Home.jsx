@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Heart, Gift, Sparkles } from 'lucide-react';
+import { Heart, Sparkles } from 'lucide-react';
 
-export default function Home() {
+export default function Home({ onNext }) {
   const coupleImage = "https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=600&auto=format&fit=crop";
 
   return (
@@ -31,20 +30,13 @@ export default function Home() {
 
           {/* Action Buttons */}
           <div className="flex flex-wrap gap-4 justify-center lg:justify-start mt-4">
-            <Link
-              to="/our-story"
+            <button
+              onClick={onNext}
               className="bg-primaryPink hover:bg-primaryPink/90 text-white font-medium px-8 py-4 rounded-full shadow-lg hover:shadow-primaryPink/30 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center gap-2"
             >
-              <span>Explore Our Story</span>
+              <span>Begin Our Journey</span>
               <Heart className="h-4 w-4 fill-white text-white" />
-            </Link>
-            <Link
-              to="/surprise"
-              className="bg-white hover:bg-rosePink/10 text-primaryPink font-semibold px-8 py-4 rounded-full shadow-lg border border-primaryPink/35 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center gap-2"
-            >
-              <span>Open My Surprise</span>
-              <Gift className="h-4 w-4 text-primaryPink" />
-            </Link>
+            </button>
           </div>
         </div>
 
