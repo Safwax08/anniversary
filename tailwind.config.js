@@ -7,29 +7,46 @@ export default {
   theme: {
     extend: {
       colors: {
-        primaryPink: '#FF6FA7',
-        rosePink: '#FFB6C1',
-        softPink: '#FFE6F0',
-        textDark: '#2D2D2D',
+        cream: '#FFF9F5',
+        creamDark: '#F8EEE9',
+        blush: '#E8C3C7',
+        blushLight: '#F3DFE1',
+        rose: '#C98791',
+        textDark: '#292426',
+        textLight: '#746B6C',
+        gold: '#B99A62',
       },
       fontFamily: {
-        serif: ['"Playfair Display"', 'serif'],
-        sans: ['"Poppins"', 'sans-serif'],
+        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+        sans: ['"Jost"', 'sans-serif'],
+        script: ['"Allura"', 'cursive'],
+      },
+      letterSpacing: {
+        widest: '0.25em',
+        mega: '0.35em',
       },
       animation: {
-        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'bounce-slow': 'bounce 2s infinite',
-        'float': 'float 6s ease-in-out infinite',
-        'fade-in': 'fadeIn 0.8s ease-out forwards',
+        'fade-up': 'fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+        'fade-in': 'fadeIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+        'reveal': 'reveal 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+        'pulse-subtle': 'pulseSubtle 4s ease-in-out infinite',
       },
       keyframes: {
-        float: {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-10px)' },
+        fadeUp: {
+          '0%': { opacity: '0', transform: 'translateY(24px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
         },
         fadeIn: {
-          '0%': { opacity: '0', transform: 'scale(0.98)' },
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        reveal: {
+          '0%': { opacity: '0', transform: 'scale(1.03)' },
           '100%': { opacity: '1', transform: 'scale(1)' },
+        },
+        pulseSubtle: {
+          '0%, 100%': { opacity: '0.8' },
+          '50%': { opacity: '0.4' },
         }
       }
     },
