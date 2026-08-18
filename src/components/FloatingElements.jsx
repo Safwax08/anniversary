@@ -8,8 +8,10 @@ export default function FloatingElements() {
   });
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 w-full h-full overflow-hidden">
+    <div className="fixed inset-0 pointer-events-none z-0 w-full h-full overflow-hidden opacity-[0.06]">
       <RiveComponent className="w-full h-full scale-105" />
     </div>
+
   );
 }
+

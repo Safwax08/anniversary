@@ -13,9 +13,21 @@ import FinalMessage from './components/FinalMessage';
 import Footer from './components/Footer';
 import AudioPlayer from './components/AudioPlayer';
 
+// Ambient & Animation Components
+import LightParticles from './components/LightParticles';
+import FloatingElements from './components/FloatingElements';
+import HeartCursor from './components/HeartCursor';
+
 export default function App() {
   return (
-    <div className="min-h-screen w-full bg-cream text-textDark font-sans selection:bg-blush selection:text-textDark relative">
+    <div className="min-h-screen w-full bg-cream text-textDark font-sans selection:bg-blush selection:text-textDark relative overflow-x-hidden">
+      {/* Background Ambient Lighting & Floating Particles */}
+      <LightParticles />
+      <FloatingElements />
+
+      {/* Custom Heart Cursor Effect */}
+      <HeartCursor />
+
       {/* Sticky Minimalist Navigation */}
       <Navbar />
 
@@ -23,7 +35,7 @@ export default function App() {
       <AudioPlayer />
 
       {/* Main Single Scroll Story Experience */}
-      <main className="w-full flex flex-col">
+      <main className="w-full flex flex-col relative z-10">
         <Hero />
         <StoryIntro />
         <Timeline />
@@ -39,3 +51,4 @@ export default function App() {
     </div>
   );
 }
+
