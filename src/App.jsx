@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Music } from 'lucide-react';
 import FloatingParticles from './components/FloatingParticles';
 import PinEntry from './components/PinEntry';
+import SpecialDayIntro from './components/SpecialDayIntro';
 import HeroCounter from './components/HeroCounter';
 import MemoryGallery from './components/MemoryGallery';
 import InteractiveQuestion from './components/InteractiveQuestion';
@@ -51,30 +52,36 @@ function App() {
           )}
 
           {currentRoom === 1 && (
+            <motion.div key="special-day" variants={roomVariants} initial="initial" animate="animate" exit="exit" className="w-full flex-1 flex justify-center items-center">
+              <SpecialDayIntro onNext={handleNext} />
+            </motion.div>
+          )}
+
+          {currentRoom === 2 && (
             <motion.div key="hero-counter" variants={roomVariants} initial="initial" animate="animate" exit="exit" className="w-full flex-1 flex justify-center items-center">
               <HeroCounter onNext={handleNext} />
             </motion.div>
           )}
 
-          {currentRoom === 2 && (
+          {currentRoom === 3 && (
             <motion.div key="love-letter" variants={roomVariants} initial="initial" animate="animate" exit="exit" className="w-full flex-1 flex justify-center items-center">
               <LoveLetter onNext={handleNext} />
             </motion.div>
           )}
 
-          {currentRoom === 3 && (
+          {currentRoom === 4 && (
             <motion.div key="memory-gallery" variants={roomVariants} initial="initial" animate="animate" exit="exit" className="w-full flex-1 flex justify-center items-center">
               <MemoryGallery onNext={handleNext} />
             </motion.div>
           )}
 
-          {currentRoom === 4 && (
+          {currentRoom === 5 && (
             <motion.div key="interactive-question" variants={roomVariants} initial="initial" animate="animate" exit="exit" className="w-full flex-1 flex justify-center items-center">
               <InteractiveQuestion onNext={handleNext} />
             </motion.div>
           )}
 
-          {currentRoom === 5 && (
+          {currentRoom === 6 && (
             <motion.div key="final-message" variants={roomVariants} initial="initial" animate="animate" exit="exit" className="w-full flex-1 flex justify-center items-center">
               <FinalMessage />
             </motion.div>
