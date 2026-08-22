@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 :root {
-  --cream: #FFF9F5;
-  --cream-dark: #F8EEE9;
-  --blush: #E8C3C7;
+  --cream: #F8F3ED;
+  --cream-dark: #EBD7D3;
+  --blush: #D9A6A6;
   --blush-light: #F3DFE1;
-  --rose: #C98791;
-  --text: #292426;
-  --text-light: #746B6C;
+  --rose: #9B5C65;
+  --text: #3A3030;
+  --text-light: #786A68;
   --gold: #B99A62;
   --white: #FFFFFF;
 }
@@ -22,10 +22,10 @@ html {
 
 body {
   background-color: var(--cream);
-  background-image: radial-gradient(rgba(201, 135, 145, 0.05) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(155, 92, 101, 0.05) 1px, transparent 1px);
   background-size: 8px 8px;
   color: var(--text);
-  font-family: 'Jost', sans-serif;
+  font-family: 'Inter', sans-serif;
   overflow-x: hidden;
 }
 
@@ -47,7 +47,7 @@ body {
 
 /* Editorial Typography & Layout Utilities */
 .section-label {
-  font-family: "Jost", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 11px;
   letter-spacing: 0.25em;
   text-transform: uppercase;

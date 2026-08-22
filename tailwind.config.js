@@ -7,19 +7,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        cream: '#FFF9F5',
-        creamDark: '#F8EEE9',
-        blush: '#E8C3C7',
+        cream: '#F8F3ED',
+        creamDark: '#EBD7D3', /* Using Soft accent here */
+        blush: '#D9A6A6',
         blushLight: '#F3DFE1',
-        rose: '#C98791',
-        textDark: '#292426',
-        textLight: '#746B6C',
+        rose: '#9B5C65',
+        textDark: '#3A3030',
+        textLight: '#786A68',
         gold: '#B99A62',
       },
       fontFamily: {
         serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-        sans: ['"Jost"', 'sans-serif'],
-        script: ['"Allura"', 'cursive'],
+        sans: ['"Inter"', 'sans-serif'],
+        script: ['"Caveat"', 'cursive'],
       },
       letterSpacing: {
         widest: '0.25em',
