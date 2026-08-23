@@ -36,14 +36,25 @@ const LoveLetter = ({ onNext }) => {
           </div>
 
           {/* Letter Card (Rises up and expands) */}
-          <div
-            style={{
-              transform: isOpen ? 'translateY(-20%) scale(1.02)' : 'translateY(0) scale(0.95)',
-              zIndex: isOpen ? 30 : 10,
-              height: isOpen ? '150%' : '80%',
-              top: isOpen ? '-25%' : '10%',
-              transition: 'all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)'
-            }}
+          <motion.div
+            animate={
+              isOpen
+                ? {
+                    y: ["0%", "-110%", "-20%"],
+                    zIndex: [10, 10, 30],
+                    scale: [0.95, 0.95, 1.02],
+                    height: ["80%", "80%", "150%"],
+                    top: ["10%", "10%", "-25%"],
+                  }
+                : {
+                    y: ["-20%", "-110%", "0%"],
+                    zIndex: [30, 10, 10],
+                    scale: [1.02, 0.95, 0.95],
+                    height: ["150%", "80%", "80%"],
+                    top: ["-25%", "10%", "10%"],
+                  }
+            }
+            transition={{ duration: 1.5, times: [0, 0.5, 1], ease: "easeInOut" }}
             className={`absolute left-[5%] right-[5%] rounded-2xl lined-paper shadow-2xl p-6 md:p-8 flex flex-col border border-[#FFE1EB] ${
               isOpen ? 'cursor-text' : 'pointer-events-none'
             }`}
@@ -77,7 +88,7 @@ const LoveLetter = ({ onNext }) => {
                 — Ayisha
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Front Flaps (Envelope Face) */}
           <div 
