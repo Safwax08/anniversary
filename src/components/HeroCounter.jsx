@@ -3,7 +3,7 @@ import { motion, useAnimation } from 'framer-motion';
 
 const HeroCounter = ({ onNext }) => {
   const [count, setCount] = useState(0);
-  const targetDays = 599;
+  const targetDays = 365;
 
   useEffect(() => {
     let start = 0;

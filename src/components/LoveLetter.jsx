@@ -46,7 +46,7 @@ const LoveLetter = ({ onNext }) => {
             transition={{ delay: 6, duration: 1 }}
           >
             <p className="italic text-textLight mb-4">Always yours,</p>
-            <p className="font-script text-4xl md:text-5xl text-rose">— Samran</p>
+            <p className="font-script text-4xl md:text-5xl text-rose">— Ayisha</p>
           </motion.div>
         </div>
       </motion.div>

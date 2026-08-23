@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Delete } from 'lucide-react';
 
-const CORRECT_PIN = "0822";
+const CORRECT_PIN = "0824";
 
 const PinEntry = ({ onNext }) => {
   const [pin, setPin] = useState("");

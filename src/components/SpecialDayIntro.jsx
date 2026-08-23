@@ -30,7 +30,7 @@ const SpecialDayIntro = ({ onNext }) => {
       >
         {/* Animated dancing bears GIF */}
         <img 
-          src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3empkeTRncDRleHd3c2lrZThxOXFpbjBwYmFyNHN5N2R4Mzk0eDU3NSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/U8bVdVwPFrR2X5gTHW/giphy.gif" 
+          src="/images/kiss.gif" 
           alt="Dancing Bears" 
           className="w-full h-full object-contain mix-blend-multiply rounded-xl" 
         />
