@@ -35,16 +35,18 @@ const LoveLetter = ({ onNext }) => {
             <div className="w-[90%] h-[90%] bg-neutral-200/50 rounded-2xl" />
           </div>
 
-          {/* Letter Card (Rises up) */}
+          {/* Letter Card (Rises up and expands) */}
           <div
             style={{
-              transform: isOpen ? 'translateY(-75%) scale(1)' : 'translateY(0) scale(0.95)',
+              transform: isOpen ? 'translateY(-20%) scale(1.02)' : 'translateY(0) scale(0.95)',
               zIndex: isOpen ? 30 : 10,
-              transition: 'transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), z-index 0.6s'
+              height: isOpen ? '150%' : '80%',
+              top: isOpen ? '-25%' : '10%',
+              transition: 'all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)'
             }}
-            className={`absolute left-[5%] right-[5%] top-[10%] bottom-[10%] rounded-2xl lined-paper shadow-lg p-6 md:p-8 flex flex-col border border-[#FFE1EB] ${
+            className={`absolute left-[5%] right-[5%] rounded-2xl lined-paper shadow-2xl p-6 md:p-8 flex flex-col border border-[#FFE1EB] ${
               isOpen ? 'cursor-text' : 'pointer-events-none'
-            } overflow-y-auto`}
+            }`}
           >
             {/* Stamp/Heart detail on letter top */}
             <div className="flex justify-between items-start mb-4">
@@ -118,7 +120,7 @@ const LoveLetter = ({ onNext }) => {
 
       {/* Controllers */}
       {isOpen && (
-        <div className="mt-48 z-10 flex flex-col md:flex-row gap-4 items-center">
+        <div className="mt-64 z-10 flex flex-col md:flex-row gap-4 items-center">
           <button
             onClick={toggleEnvelope}
             className="bg-primaryPink hover:bg-primaryPink/90 text-white font-medium px-8 py-3.5 rounded-full hover:scale-105 active:scale-95 transition-all duration-300 shadow-md flex items-center gap-2"
