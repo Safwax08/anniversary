@@ -7,6 +7,7 @@ const LoveLetter = ({ onNext }) => {
   const [isZIndexHigh, setIsZIndexHigh] = useState(false);
   const timerRef = React.useRef(null);
 
+
   const toggleEnvelope = () => {
     if (timerRef.current) clearTimeout(timerRef.current);
     if (!isOpen) {
@@ -19,15 +20,25 @@ const LoveLetter = ({ onNext }) => {
   };
 
   return (
-    <div className="relative min-h-screen pt-24 pb-16 flex flex-col items-center justify-center px-6 w-full">
+    <div className="relative min-h-screen pt-16 pb-12 flex flex-col items-center justify-center px-6 w-full">
       
       {/* Page Header */}
-      <div className="text-center mb-10 z-10">
+      <motion.div 
+        animate={{ 
+          opacity: isOpen ? 0 : 1,
+          y: isOpen ? -20 : 0,
+          scale: isOpen ? 0.95 : 1,
+          height: isOpen ? 0 : 'auto',
+          marginBottom: isOpen ? 0 : 40,
+        }}
+        transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
+        className="text-center z-10 overflow-hidden"
+      >
         <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-textDark font-bold mb-3">
           A Letter From My Heart
         </h2>
         <div className="w-24 h-1 bg-primaryPink/60 mx-auto rounded-full" />
-      </div>
+      </motion.div>
 
       {/* Interactive Envelope Container */}
       <div className="relative w-full max-w-[550px] min-h-[500px] flex items-center justify-center z-10">
@@ -50,20 +61,24 @@ const LoveLetter = ({ onNext }) => {
             animate={
               isOpen
                 ? {
-                    y: ["0%", "-110%", "-20%"],
+                    y: ["0%", "-110%", "-10%"],
                     scale: [0.95, 0.95, 1.02],
-                    height: ["80%", "80%", "150%"],
-                    top: ["10%", "10%", "-25%"],
+                    height: ["80%", "80%", "135%"],
+                    top: ["10%", "10%", "-10%"],
+                    left: ["5%", "5%", "2%"],
+                    right: ["5%", "5%", "2%"],
                   }
                 : {
-                    y: ["-20%", "-110%", "0%"],
+                    y: ["-10%", "-110%", "0%"],
                     scale: [1.02, 0.95, 0.95],
-                    height: ["150%", "80%", "80%"],
-                    top: ["-25%", "10%", "10%"],
+                    height: ["135%", "80%", "80%"],
+                    top: ["-10%", "10%", "10%"],
+                    left: ["2%", "5%", "5%"],
+                    right: ["2%", "5%", "5%"],
                   }
             }
             transition={{ duration: 1.5, times: [0, 0.5, 1], ease: "easeInOut" }}
-            className={`absolute left-[5%] right-[5%] rounded-2xl lined-paper shadow-2xl p-6 md:p-8 flex flex-col border border-[#FFE1EB] ${
+            className={`absolute rounded-2xl lined-paper bg-white shadow-2xl p-6 md:p-8 flex flex-col border border-[#FFE1EB] overflow-hidden ${
               isOpen ? 'cursor-text' : 'pointer-events-none'
             }`}
           >
@@ -74,7 +89,7 @@ const LoveLetter = ({ onNext }) => {
             </div>
 
             {/* Letter Text */}
-            <div className="font-serif text-xs md:text-sm text-textDark/85 italic leading-relaxed flex-grow select-text">
+            <div className="font-serif text-sm md:text-base text-textDark/85 italic leading-relaxed flex-grow select-text">
               <p className="mb-2">
                 I wanted to create something special, something that could hold a little bit of the feeling you give me every day.
               </p>
@@ -91,8 +106,8 @@ const LoveLetter = ({ onNext }) => {
 
             {/* Signature */}
             <div className="mt-2 text-right">
-              <p className="text-xs text-textDark/65">Always yours,</p>
-              <p className="text-[#FF6FA7] font-script text-2xl md:text-3xl font-bold mt-1">
+              <p className="text-sm text-textDark/65">Always yours,</p>
+              <p className="text-[#FF6FA7] font-script text-3xl md:text-4xl font-bold mt-1">
                 — Ayisha
               </p>
             </div>
@@ -139,7 +154,7 @@ const LoveLetter = ({ onNext }) => {
 
       {/* Controllers */}
       {isOpen && (
-        <div className="mt-64 z-10 flex flex-col md:flex-row gap-4 items-center">
+        <div className="mt-12 z-10 flex flex-col md:flex-row gap-4 items-center">
           <button
             onClick={toggleEnvelope}
             className="bg-primaryPink hover:bg-primaryPink/90 text-white font-medium px-8 py-3.5 rounded-full hover:scale-105 active:scale-95 transition-all duration-300 shadow-md flex items-center gap-2"

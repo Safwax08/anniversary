@@ -12,6 +12,7 @@ export default {
         blush: '#D9A6A6',
         blushLight: '#F3DFE1',
         rose: '#9B5C65',
+        primaryPink: '#FF6FA7',
         textDark: '#3A3030',
         textLight: '#786A68',
         gold: '#B99A62',

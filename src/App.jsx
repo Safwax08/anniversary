@@ -34,7 +34,7 @@ function App() {
   };
 
   return (
-    <main className="relative min-h-screen w-full overflow-hidden text-textDark flex flex-col justify-center items-center">
+    <main className="relative min-h-screen w-full overflow-x-hidden overflow-y-auto text-textDark flex flex-col justify-center items-center">
       <FloatingParticles />
       
       {/* Music Icon matching screenshot */}

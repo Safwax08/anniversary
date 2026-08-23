@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const memories = [
   {
     id: 1,
-    src: '/images/memory_1.jpg',
+    src: '/images/memory_4.jpg',
     caption: 'Where it all started...',
     rotation: -2,
     yOffset: 0,

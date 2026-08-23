@@ -196,5 +196,19 @@ body.custom-cursor-active * {
   cursor: none !important;
 }
 
+/* Primary Pink Fallbacks */
+.bg-primaryPink {
+  background-color: #FF6FA7 !important;
+}
+.hover\:bg-primaryPink\/90:hover {
+  background-color: #E05E92 !important;
+}
+.hover\:bg-primaryPink\/95:hover {
+  background-color: #F0649B !important;
+}
+.bg-primaryPink\/60 {
+  background-color: rgba(255, 111, 167, 0.6) !important;
+}
+
 
 
