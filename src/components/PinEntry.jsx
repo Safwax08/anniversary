@@ -47,7 +47,7 @@ const PinEntry = ({ onNext }) => {
           transition={{ duration: 1.2, ease: "easeOut" }}
         >
           <div className="mb-6 text-center">
-            <h2 className="font-sans text-2xl md:text-3xl font-semibold text-textDark mb-1">For My Love</h2>
+            <h2 className="font-bebas text-2xl md:text-3xl tracking-widest text-textDark mb-1">FOR MY LOVE</h2>
             <p className="font-sans text-sm text-textLight">Enter our special date to unlock</p>
           </div>
           
@@ -55,7 +55,7 @@ const PinEntry = ({ onNext }) => {
             <div className="w-[200px] h-[240px] md:w-[240px] md:h-[280px] overflow-hidden mb-4 bg-gray-100">
               <img src="/images/memory_1.jpg" alt="Us" className="w-full h-full object-cover filter contrast-[0.95] sepia-[0.1]" />
             </div>
-            <p className="font-script text-2xl text-center text-textDark">You & Me ❤️</p>
+            <p className="font-script text-2xl md:text-3xl text-center text-textDark">You & Me ❤️</p>
           </div>
         </motion.div>
 
@@ -66,7 +66,7 @@ const PinEntry = ({ onNext }) => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
         >
-          <h3 className="font-sans text-xl font-medium text-textDark mb-2">Enter PIN</h3>
+          <h3 className="font-bebas text-xl tracking-wider text-textDark mb-1">ENTER PIN</h3>
           <p className="font-sans text-xs text-textLight mb-8">Hint: Our Anniversary (DDMM)</p>
           
           {/* Dots */}

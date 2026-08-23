@@ -6,15 +6,15 @@ const FloatingParticles = () => {
 
   useEffect(() => {
     // Generate random floating flowers
-    const newParticles = Array.from({ length: 8 }).map((_, i) => ({
+    const newParticles = Array.from({ length: 12 }).map((_, i) => ({
       id: i,
       x: Math.random() * 100,
-      size: Math.random() * 120 + 80, // Size between 80px and 200px
-      duration: Math.random() * 25 + 25, // Very slow, peaceful floating (25s to 50s)
-      delay: Math.random() * 15,
+      size: Math.random() * 50 + 40, // Decreased size (between 40px and 90px)
+      duration: Math.random() * 10 + 12, // Increased speed (duration between 12s and 22s)
+      delay: Math.random() * 10,
       rotationStart: Math.random() * 360,
       rotationEnd: Math.random() * 360 + 180, // Rotate slowly while floating
-      driftX: Math.random() * 200 - 100,
+      driftX: Math.random() * 150 - 75,
     }));
     setParticles(newParticles);
   }, []);

@@ -8,6 +8,7 @@ import HeroCounter from './components/HeroCounter';
 import MemoryGallery from './components/MemoryGallery';
 import InteractiveQuestion from './components/InteractiveQuestion';
 import LoveLetter from './components/LoveLetter';
+import YaySuccess from './components/YaySuccess';
 import FinalMessage from './components/FinalMessage';
 import './App.css';
 
@@ -30,6 +31,11 @@ function App() {
 
   const handleNext = () => {
     setCurrentRoom((prev) => prev + 1);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleRestart = () => {
+    setCurrentRoom(1); // Restart to special day intro
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -82,8 +88,14 @@ function App() {
           )}
 
           {currentRoom === 6 && (
+            <motion.div key="yay-success" variants={roomVariants} initial="initial" animate="animate" exit="exit" className="w-full flex-1 flex justify-center items-center">
+              <YaySuccess onNext={handleNext} onRestart={handleRestart} />
+            </motion.div>
+          )}
+
+          {currentRoom === 7 && (
             <motion.div key="final-message" variants={roomVariants} initial="initial" animate="animate" exit="exit" className="w-full flex-1 flex justify-center items-center">
-              <FinalMessage />
+              <FinalMessage onRestart={handleRestart} />
             </motion.div>
           )}
 

@@ -20,7 +20,8 @@ export default {
       fontFamily: {
         serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
         sans: ['"Inter"', 'sans-serif'],
-        script: ['"Caveat"', 'cursive'],
+        script: ['"Great Vibes"', '"Alex Brush"', '"Caveat"', 'cursive'],
+        bebas: ['"Bebas Neue"', 'sans-serif'],
       },
       letterSpacing: {
         widest: '0.25em',

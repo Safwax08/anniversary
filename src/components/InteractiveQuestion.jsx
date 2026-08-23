@@ -19,15 +19,15 @@ const InteractiveQuestion = ({ onNext }) => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
       >
-        <h2 className="font-script text-5xl md:text-6xl text-rose mb-6">
+        <h2 className="font-script text-4xl md:text-5xl text-rose mb-3">
           Will you stay mine...
         </h2>
-        <p className="font-script text-4xl md:text-5xl text-rose mb-20">
+        <p className="font-script text-3xl md:text-4xl text-rose mb-12">
           for all the years to come?
         </p>
 
         <div className="flex flex-row items-center justify-center gap-8 mt-12 relative h-16">
-          
+
           {/* Moving No Button */}
           <motion.div
             className="absolute left-1/2"

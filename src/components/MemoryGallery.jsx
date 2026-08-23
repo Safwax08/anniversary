@@ -29,7 +29,7 @@ const MemoryGallery = ({ onNext }) => {
   return (
     <div className="w-full max-w-6xl mx-auto py-12 md:py-24 flex flex-col items-center min-h-screen justify-center">
       <motion.h2 
-        className="font-script text-4xl md:text-5xl text-rose mb-16 text-center"
+        className="font-script text-3xl md:text-4xl text-rose mb-12 text-center"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.2 }}
@@ -77,7 +77,7 @@ const MemoryGallery = ({ onNext }) => {
                 className="w-full h-full object-cover filter contrast-[0.95]"
               />
             </div>
-            <p className="font-script text-xl text-textDark text-center mb-1">{memory.caption}</p>
+            <p className="font-script text-xl md:text-2xl text-textDark text-center mb-1">{memory.caption}</p>
           </motion.div>
         ))}
       </div>

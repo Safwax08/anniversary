@@ -10,14 +10,14 @@ const SpecialDayIntro = ({ onNext }) => {
         transition={{ duration: 1.2, ease: "easeOut" }}
         className="flex flex-col items-center"
       >
-        <p className="font-serif text-xl md:text-2xl text-rose/80 mb-6 font-medium">
+        <p className="font-script text-2xl md:text-3xl text-rose/90 mb-3">
           It's our special day, my love.
         </p>
         
-        <h2 className="font-serif text-4xl md:text-5xl text-textDark mb-2 font-light">
-          I have made something
+        <h2 className="font-bebas text-3xl md:text-5xl text-textDark tracking-widest mb-1 font-normal">
+          I HAVE MADE SOMETHING
         </h2>
-        <h2 className="font-script text-5xl md:text-6xl text-rose mb-12 -rotate-2">
+        <h2 className="font-script text-4xl md:text-6xl text-rose mb-10 -rotate-2">
           special for you
         </h2>
       </motion.div>

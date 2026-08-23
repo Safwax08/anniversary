@@ -29,21 +29,21 @@ const HeroCounter = ({ onNext }) => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
       >
-        <h1 className="font-serif text-4xl md:text-5xl text-textDark font-light tracking-wide mb-2">
-          Happy Anniversary
+        <h1 className="font-bebas text-3xl md:text-5xl text-textDark tracking-widest mb-1">
+          HAPPY ANNIVERSARY
         </h1>
-        <h2 className="font-script text-5xl md:text-7xl text-rose mb-16">
+        <h2 className="font-script text-4xl md:text-6xl text-rose mb-8">
           My Love!
         </h2>
       </motion.div>
 
       <motion.div
-        className="flex flex-col items-center mb-16"
+        className="flex flex-col items-center mb-12"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.5 }}
       >
-        <div className="font-serif text-6xl md:text-8xl text-rose mb-2 font-medium tracking-wider" style={{ fontVariantNumeric: 'tabular-nums' }}>
+        <div className="font-bebas text-5xl md:text-7xl text-rose mb-2 font-medium tracking-wider" style={{ fontVariantNumeric: 'tabular-nums' }}>
           {count}
         </div>
         <div className="font-sans text-xs md:text-sm tracking-[0.3em] uppercase text-textDark font-medium">
