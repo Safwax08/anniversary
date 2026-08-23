@@ -5,7 +5,18 @@ import { motion } from 'framer-motion';
 const LoveLetter = ({ onNext }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isZIndexHigh, setIsZIndexHigh] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(() => 
+    typeof window !== 'undefined' && window.innerWidth >= 768
+  );
   const timerRef = React.useRef(null);
+
+  React.useEffect(() => {
+    const handleResize = () => setIsDesktop(window.innerWidth >= 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const openHeight = isDesktop ? "135%" : "182%";
 
   const toggleEnvelope = () => {
     if (timerRef.current) clearTimeout(timerRef.current);
@@ -19,7 +30,7 @@ const LoveLetter = ({ onNext }) => {
   };
 
   return (
-    <div className="relative min-h-screen pt-12 pb-12 flex flex-col items-center justify-center px-6 w-full overflow-hidden">
+    <div className="relative min-h-screen pt-20 sm:pt-24 pb-16 flex flex-col items-center justify-center px-6 w-full overflow-hidden">
       
       {/* Background Floating Hearts */}
       <div className="absolute inset-0 pointer-events-none z-0">
@@ -70,57 +81,57 @@ const LoveLetter = ({ onNext }) => {
             animate={
               isOpen
                 ? {
-                    y: ["0%", "-110%", "-10%"],
-                    scale: [0.95, 0.95, 1.02],
-                    height: ["80%", "80%", "135%"],
-                    top: ["10%", "10%", "-10%"],
-                    left: ["5%", "5%", "2%"],
-                    right: ["5%", "5%", "2%"],
+                    y: ["0%", "-110%", "0%"],
+                    scale: [0.95, 0.95, 1],
+                    height: ["80%", "80%", openHeight],
+                    top: ["10%", "10%", "-5%"],
+                    left: ["4%", "4%", "-1%"],
+                    right: ["4%", "4%", "-1%"],
                   }
                 : {
-                    y: ["-10%", "-110%", "0%"],
-                    scale: [1.02, 0.95, 0.95],
-                    height: ["135%", "80%", "80%"],
-                    top: ["-10%", "10%", "10%"],
-                    left: ["2%", "5%", "5%"],
-                    right: ["2%", "5%", "5%"],
+                    y: ["-5%", "-110%", "0%"],
+                    scale: [1, 0.95, 0.95],
+                    height: [openHeight, "80%", "80%"],
+                    top: ["-5%", "10%", "10%"],
+                    left: ["-1%", "4%", "4%"],
+                    right: ["-1%", "4%", "4%"],
                   }
             }
             transition={{ duration: 1.5, times: [0, 0.5, 1], ease: "easeInOut" }}
-            className={`absolute rounded-2xl bg-[#FFFDF9] shadow-2xl p-6 md:p-8 flex flex-col border border-[#F0D5DA] overflow-hidden ${
-              isOpen ? 'cursor-text' : 'pointer-events-none'
+            className={`absolute rounded-2xl bg-[#FFFDF9] shadow-2xl p-5 sm:p-7 md:p-8 flex flex-col border border-[#F0D5DA] ${
+              isOpen ? 'cursor-text' : 'pointer-events-none overflow-hidden'
             }`}
           >
             {/* Stamp/Greeting detail on letter top */}
-            <div className="flex justify-between items-start mb-4">
-              <span className="text-[#A81C37] font-script text-3xl md:text-4xl font-semibold">
+            <div className="flex justify-between items-start mb-3 sm:mb-4 shrink-0">
+              <span className="text-[#A81C37] font-script text-2xl sm:text-3xl md:text-4xl font-semibold">
                 My Love,
               </span>
               <Heart className="h-5 w-5 fill-[#A81C37] text-[#A81C37]" />
             </div>
 
             {/* Letter Text */}
-            <div className="font-serif text-sm md:text-base text-textDark/85 italic leading-relaxed flex-grow select-text">
-              <p className="mb-3">
+            <div className="font-serif text-xs sm:text-sm md:text-base text-textDark/85 italic leading-relaxed flex-grow select-text">
+              <p className="mb-2 sm:mb-3">
                 I wanted to create something special, something that could hold a little bit of the feeling you give me every day.
               </p>
-              <p className="mb-3">
+              <p className="mb-2 sm:mb-3">
                 Looking back at our memories, I'm constantly reminded of how lucky I am. It's in the quiet mornings with our coffee, the walks where we lose track of time, and the simple comfort of just being near you.
               </p>
-              <p className="mb-3">
+              <p className="mb-2 sm:mb-3">
                 You have this beautiful way of making the world feel a little softer, a little brighter. I cherish every laugh we've shared and every challenge we've faced together, knowing we always come out stronger.
               </p>
-              <p className="mb-3">
-                Thank you for being my favorite person, my confidant, and my home. I can't wait to see what the next chapter holds for us.
+              <p className="mb-2 sm:mb-3">
+                Thank you for being my favorite person, my confident, and my home. I can't wait to see what the next chapter holds for us.
               </p>
-            </div>
 
-            {/* Signature */}
-            <div className="mt-3 text-right">
-              <p className="text-xs text-textDark/65 font-sans uppercase tracking-widest">Always yours,</p>
-              <p className="text-[#A81C37] font-script text-3xl md:text-4xl font-bold mt-1">
-                — Ayisha
-              </p>
+              {/* Signature */}
+              <div className="mt-3 sm:mt-4 text-right shrink-0">
+                <p className="text-xs sm:text-sm text-textDark/65 font-sans uppercase tracking-widest">Always yours,</p>
+                <p className="text-[#A81C37] font-script text-2xl sm:text-3xl md:text-4xl font-bold mt-0.5">
+                  — Ayisha
+                </p>
+              </div>
             </div>
           </motion.div>
 
@@ -180,7 +191,7 @@ const LoveLetter = ({ onNext }) => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1 }}
-          className="mt-10 z-10 flex flex-col md:flex-row gap-4 items-center"
+          className="mt-[215px] sm:mt-[225px] md:mt-[145px] z-10 flex flex-col md:flex-row gap-4 items-center mb-8"
         >
           <button
             onClick={toggleEnvelope}
