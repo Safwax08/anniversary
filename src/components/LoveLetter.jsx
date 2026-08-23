@@ -4,9 +4,18 @@ import { motion } from 'framer-motion';
 
 const LoveLetter = ({ onNext }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isZIndexHigh, setIsZIndexHigh] = useState(false);
+  const timerRef = React.useRef(null);
 
   const toggleEnvelope = () => {
-    setIsOpen(!isOpen);
+    if (timerRef.current) clearTimeout(timerRef.current);
+    if (!isOpen) {
+      setIsOpen(true);
+      timerRef.current = setTimeout(() => setIsZIndexHigh(true), 750);
+    } else {
+      setIsZIndexHigh(false);
+      setIsOpen(false);
+    }
   };
 
   return (
@@ -37,18 +46,17 @@ const LoveLetter = ({ onNext }) => {
 
           {/* Letter Card (Rises up and expands) */}
           <motion.div
+            style={{ zIndex: isZIndexHigh ? 30 : 10 }}
             animate={
               isOpen
                 ? {
                     y: ["0%", "-110%", "-20%"],
-                    zIndex: [10, 10, 30],
                     scale: [0.95, 0.95, 1.02],
                     height: ["80%", "80%", "150%"],
                     top: ["10%", "10%", "-25%"],
                   }
                 : {
                     y: ["-20%", "-110%", "0%"],
-                    zIndex: [30, 10, 10],
                     scale: [1.02, 0.95, 0.95],
                     height: ["150%", "80%", "80%"],
                     top: ["-25%", "10%", "10%"],
