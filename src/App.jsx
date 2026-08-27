@@ -10,6 +10,7 @@ import InteractiveQuestion from './components/InteractiveQuestion';
 import LoveLetter from './components/LoveLetter';
 import YaySuccess from './components/YaySuccess';
 import FinalMessage from './components/FinalMessage';
+import Footer from './components/Footer';
 import './App.css';
 
 // Transition variant for room entry/exit
@@ -40,7 +41,7 @@ function App() {
   };
 
   return (
-    <main className="relative min-h-screen w-full overflow-x-hidden overflow-y-auto text-textDark flex flex-col justify-center items-center">
+    <main className="relative min-h-screen w-full overflow-x-hidden overflow-y-auto text-textDark flex flex-col">
       <FloatingParticles />
       
       {/* Music Icon matching screenshot */}
@@ -48,7 +49,7 @@ function App() {
         <Music size={20} />
       </div>
       
-      <div className="relative z-10 w-full h-full flex flex-col justify-center items-center min-h-screen">
+      <div className="relative z-10 w-full flex-grow flex flex-col justify-center items-center min-h-screen">
         <AnimatePresence mode="wait">
           
           {currentRoom === 0 && (
@@ -101,6 +102,8 @@ function App() {
 
         </AnimatePresence>
       </div>
+      
+      <Footer />
     </main>
   );
 }
